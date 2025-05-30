@@ -1,9 +1,9 @@
 # Web-Interactive-agent-
 
-🔍 Objective:
+Objective:
 To create a web-based document loader using LangChain’s WebBaseLoader, allowing you to scrape and ingest content from web pages into a vector database for further processing or querying.
 
-🧱 Main Components Used:
+Main Components Used:
 WebBaseLoader from LangChain:
 
 Used to scrape content from a specific URL.
@@ -36,10 +36,10 @@ LLM Integration:
 
 Integrated with ChatOpenAI to generate natural language responses based on the retrieved documents.
 
-🧪 Example Use Case:
+Example Use Case:
 Load web content ➝ Split into chunks ➝ Embed into vector DB ➝ Query ➝ Generate LLM-based answer.
 
-✅ Outcome:
+Outcome:
 Successfully created an interactive web content loader using LangChain, capable of:
 
 Loading and preprocessing web data,
@@ -49,3 +49,6 @@ Embedding and storing in vector DB (FAISS),
 Querying and retrieving semantically relevant information,
 
 Using LLM to answer questions based on retrieved context.
+
+
+

@@ -20,7 +20,7 @@ Parameters like chunk_size=1000, chunk_overlap=200.
 
 Embeddings:
 
-Used OpenAIEmbeddings to convert text into vector form for similarity search and semantic querying.
+Used huggingface embedding to convert text into vector form for similarity search and semantic querying.
 
 Vector Store:
 

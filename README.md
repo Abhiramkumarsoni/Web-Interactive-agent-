@@ -1,58 +1,86 @@
-🧠 Web Interactive Agent – AI-Powered Document Q&A App
-An intelligent and interactive web application that allows users to upload documents or input web URLs and then ask questions in natural language about the content. Built using Streamlit, HuggingFace embeddings, Groq LLMs, and LangChain, this app acts like a private ChatGPT trained only on your custom input.
+# 🧠 Web Interactive Agent – AI-Powered Document Q&A App
 
-🔍 Problem Statement
-Accessing knowledge from large documents or online content can be time-consuming. This project simplifies that by allowing users to chat with any document or webpage, asking specific questions and getting instant, accurate responses — like having your own AI-powered research assistant.
+An intelligent web application that lets users upload documents or input web URLs and ask questions about the content using Natural Language. Built with **Streamlit**, **HuggingFace embeddings**, **Groq LLMs**, and **LangChain**, this app turns any document into an interactive AI assistant.
 
-🚀 Key Features
-✅ Upload a .txt file or provide a URL
-✅ Automatically extract and preprocess text from the source
-✅ Split documents into manageable chunks for context retention
-✅ Convert text to embeddings using HuggingFace MiniLM
-✅ Store vectors using FAISS for fast similarity search
-✅ Use Groq’s LLaMA3 models to generate high-quality, context-aware answers
-✅ Clean, interactive UI with Streamlit
-✅ Optional: Sidebar model selector and Groq API key entry
+---
 
-🛠️ Tech Stack
-Layer	Technology
-Web Interface	Streamlit
-Embeddings	HuggingFace Transformers (MiniLM-L6-v2)
-Vector Store	FAISS
-LLM Inference	Groq API (llama3-70b-8192)
-Text Splitting	LangChain RecursiveCharacterTextSplitter
-Content Loader	LangChain WebBaseLoader
+## 🔍 Problem Statement
 
-📦 How It Works
-User Uploads Document / Enters URL
-→ Text is extracted from uploaded .txt file or scraped from webpage.
+Reading and extracting insights from lengthy documents or online content can be inefficient. This project provides an AI-powered interface to **chat with any document or webpage**, simplifying research and understanding.
 
-Text Preprocessing
-→ Long documents are split into smaller chunks for better context handling.
+---
 
-Embedding Generation
-→ Each chunk is converted into vector representation using all-MiniLM-L6-v2.
+## 🚀 Features
 
-Semantic Search
-→ FAISS searches for the most relevant chunks based on the user's query.
+- 📄 Upload `.txt` files or provide a webpage URL  
+- 🧠 Embedding generation using HuggingFace (`MiniLM-L6-v2`)  
+- 🔍 Fast semantic search using FAISS  
+- 🤖 Real-time response generation using **Groq LLaMA3** models  
+- 🌐 Simple and responsive UI built with Streamlit  
+- 🧩 Modular design with easy-to-extend components  
 
-Question Answering
-→ The relevant chunks are passed to Groq's LLaMA3 model to generate answers.
+---
 
-Streamlit Interface
-→ Displays answer in an intuitive and responsive UI.
+## 🛠 Tech Stack
 
-💡 Use Cases
-📚 Research assistance: Summarize and query articles
+| Component       | Technology Used                        |
+|----------------|-----------------------------------------|
+| Interface       | Streamlit                              |
+| Embeddings      | HuggingFace (`all-MiniLM-L6-v2`)        |
+| Vector Store    | FAISS                                   |
+| LLM Backend     | Groq API (`llama3-70b-8192`)            |
+| Chunking        | LangChain RecursiveCharacterTextSplitter |
+| Loader          | WebBaseLoader for URL scraping          |
 
-📄 Document QA: Ask questions about custom reports or contracts
+---
 
-📰 News analysis: Understand key insights from blog or news articles
+## 📦 How It Works
 
-📊 Personal assistant: Chat with any structured text
+1. **Input**: Upload a `.txt` file or enter a URL  
+2. **Load**: Extract content using `WebBaseLoader` or Streamlit’s file uploader  
+3. **Split**: Divide content into smaller chunks  
+4. **Embed**: Generate vector embeddings using HuggingFace  
+5. **Search**: Use FAISS to retrieve relevant chunks based on query  
+6. **Answer**: Pass retrieved content and query to Groq LLM for an answer  
+7. **Display**: Show the response in the Streamlit UI
 
-🧪 Demo
-🔑 Requires a Groq API key
-pip install -r requirements.txt
-streamlit run app.py
+---
+
+## 💻 How to Run Locally
+
+1. **Install dependencies**  
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+2. **Start the Streamlit app**  
+    ```bash
+    streamlit run app.py
+    ```
+
+3. **Enter your Groq API Key** in the sidebar  
+4. Upload a text file or provide a URL  
+5. Ask questions about the content 🎉
+
+---
+
+## 🔐 Requirements
+
+- Python 3.8+
+- Groq API Key (Get one at [https://console.groq.com](https://console.groq.com))
+
+---
+
+## 🧪 Use Cases
+
+- 📰 Chat with news articles  
+- 📊 Summarize and understand reports  
+- 🧾 Read and interpret legal documents  
+- 📚 Explore academic papers or research  
+
+---
+
+## 📸 Screenshots
+
+![Screenshot 2025-06-28 112752](https://github.com/user-attachments/assets/b3052d95-9f8a-4fc5-a0da-ce23b691bda0)
 

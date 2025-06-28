@@ -1,54 +1,58 @@
-# Web-Interactive-agent-
+🧠 Web Interactive Agent – AI-Powered Document Q&A App
+An intelligent and interactive web application that allows users to upload documents or input web URLs and then ask questions in natural language about the content. Built using Streamlit, HuggingFace embeddings, Groq LLMs, and LangChain, this app acts like a private ChatGPT trained only on your custom input.
 
-Objective:
-To create a web-based document loader using LangChain’s WebBaseLoader, allowing you to scrape and ingest content from web pages into a vector database for further processing or querying.
+🔍 Problem Statement
+Accessing knowledge from large documents or online content can be time-consuming. This project simplifies that by allowing users to chat with any document or webpage, asking specific questions and getting instant, accurate responses — like having your own AI-powered research assistant.
 
-Main Components Used:
-WebBaseLoader from LangChain:
+🚀 Key Features
+✅ Upload a .txt file or provide a URL
+✅ Automatically extract and preprocess text from the source
+✅ Split documents into manageable chunks for context retention
+✅ Convert text to embeddings using HuggingFace MiniLM
+✅ Store vectors using FAISS for fast similarity search
+✅ Use Groq’s LLaMA3 models to generate high-quality, context-aware answers
+✅ Clean, interactive UI with Streamlit
+✅ Optional: Sidebar model selector and Groq API key entry
 
-Used to scrape content from a specific URL.
+🛠️ Tech Stack
+Layer	Technology
+Web Interface	Streamlit
+Embeddings	HuggingFace Transformers (MiniLM-L6-v2)
+Vector Store	FAISS
+LLM Inference	Groq API (llama3-70b-8192)
+Text Splitting	LangChain RecursiveCharacterTextSplitter
+Content Loader	LangChain WebBaseLoader
 
-Example: loader = WebBaseLoader("https://example.com")
+📦 How It Works
+User Uploads Document / Enters URL
+→ Text is extracted from uploaded .txt file or scraped from webpage.
 
-load() method fetches and loads the web content as a LangChain Document object.
+Text Preprocessing
+→ Long documents are split into smaller chunks for better context handling.
 
-Text Splitting:
+Embedding Generation
+→ Each chunk is converted into vector representation using all-MiniLM-L6-v2.
 
-Used RecursiveCharacterTextSplitter to split large chunks of content into smaller, manageable pieces (for embedding).
+Semantic Search
+→ FAISS searches for the most relevant chunks based on the user's query.
 
-Parameters like chunk_size=1000, chunk_overlap=200.
+Question Answering
+→ The relevant chunks are passed to Groq's LLaMA3 model to generate answers.
 
-Embeddings:
+Streamlit Interface
+→ Displays answer in an intuitive and responsive UI.
 
-Used huggingface embedding to convert text into vector form for similarity search and semantic querying.
+💡 Use Cases
+📚 Research assistance: Summarize and query articles
 
-Vector Store:
+📄 Document QA: Ask questions about custom reports or contracts
 
-Implemented using FAISS (Facebook AI Similarity Search).
+📰 News analysis: Understand key insights from blog or news articles
 
-Stores vectorized chunks and allows for efficient retrieval.
+📊 Personal assistant: Chat with any structured text
 
-Querying the Data:
-
-Used SimilaritySearch to query the content semantically and retrieve the most relevant documents.
-
-LLM Integration:
-
-Integrated with ChatOpenAI to generate natural language responses based on the retrieved documents.
-
-Example Use Case:
-Load web content ➝ Split into chunks ➝ Embed into vector DB ➝ Query ➝ Generate LLM-based answer.
-
-Outcome:
-Successfully created an interactive web content loader using LangChain, capable of:
-
-Loading and preprocessing web data,
-
-Embedding and storing in vector DB (FAISS),
-
-Querying and retrieving semantically relevant information,
-
-Using LLM to answer questions based on retrieved context.
-
-
+🧪 Demo
+🔑 Requires a Groq API key
+pip install -r requirements.txt
+streamlit run app.py
 

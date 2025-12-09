@@ -14,3 +14,4 @@ langchain_huggingface
 streamlit
 PyPDF2
 langchain_groq
+faiss

@@ -2,7 +2,7 @@ import streamlit as st
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain_groq import ChatGroq
 from langchain.schema import Document
@@ -29,19 +29,25 @@ if (uploaded_file or url_input) and groq_api_key:
     chunks = splitter.split_documents(documents)
 
     # Embeddings
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectorstore = FAISS.from_documents(chunks, embeddings)
 
-    # Chat setup
-    
-    groq_llm = ChatGroq(api_key=groq_api_key, model_name="llama3-70b-8192") 
+    # Chat setup (✔ fixed)
+    groq_llm = ChatGroq(
+        groq_api_key=groq_api_key,
+        model="llama-3.1-8b-instant"
+    )
+
     chain = load_qa_chain(groq_llm, chain_type="stuff")
 
     query = st.text_input("Ask a question about the content:")
+
     if query:
         relevant_docs = vectorstore.similarity_search(query)
         answer = chain.run(input_documents=relevant_docs, question=query)
+
         st.write("### 🤖 Answer:")
         st.success(answer)
+
 else:
     st.warning("Please enter a Groq API key and provide a URL or upload a file.")
